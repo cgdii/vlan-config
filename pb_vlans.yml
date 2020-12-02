@@ -2,6 +2,8 @@
 
 - name: GENERATE IOS VLAN CONFIGURATION
   hosts: all
+  gather_facts: false
+  connection: local
   tasks:
     - name: ENSURE OUTPUT FOLDER EXISTS
       file:
@@ -11,4 +13,3 @@
       template:
         src: vlans.j2
         dest: output/{{ inventory_hostname }}_vlans.cfg
-
